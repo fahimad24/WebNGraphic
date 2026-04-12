@@ -1,0 +1,177 @@
+datasource db {
+  provider = "postgresql"
+}
+ 
+generator client {
+  provider = "prisma-client-js"
+}
+ 
+model User {
+  id            String          @id @default(cuid())
+  name          String
+  email         String          @unique
+  emailVerified DateTime?
+  image         String?
+  accounts      Account[]
+  blogs         Blog[]
+  role          String         @default("user")
+ 
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Account {
+  userId            String
+  type              String
+  provider          String
+  providerAccountId String
+  refresh_token     String?
+  access_token      String?
+  expires_at        Int?
+  token_type        String?
+  scope             String?
+  id_token          String?
+  session_state     String?
+ 
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+ 
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+ 
+  @@id([provider, providerAccountId])
+}
+
+model Blog {
+  id            String   @id @default(uuid())
+  title         String
+  content       String
+  authorId      String   
+  author        User @relation(fields: [authorId], references: [id], onDelete: Cascade)
+  category      String
+  imageLink     String   
+  imagePublicID String   
+  isPopular     Boolean
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+  published     Boolean  @default(false)
+}
+ 
+
+ 
+model Response {
+  id        String   @id @default(uuid())
+  name      String
+  phone     String
+  email     String   
+  message   String?
+  interest  String?
+  createdAt DateTime @default(now())
+  stage     ResponseStage @default(LEAD)
+  notes     Note[]  
+}
+enum ResponseStage {
+  LEAD
+  INTERESTED
+  CONVERTED
+  CANCELLED
+}
+
+model Note {
+  id                      String   @id @default(uuid())
+  content                 String
+  createdAt               DateTime @default(now())
+
+  responseId              String?
+  startedId               String?
+
+  response                Response?              @relation(fields: [responseId], references: [id], onDelete: Cascade)
+  getStarted              GetStarted? @relation(fields: [startedId], references: [id], onDelete: Cascade)
+
+  noteType                NoteType
+}
+enum NoteType {
+  RESPONSE
+  STARTED
+}
+
+
+model GetStarted {
+  id        String   @id @default(uuid())
+  name      String
+  phone     String
+  email     String   
+  message   String?
+  service   String?
+  budget    String?
+  plan      String?
+  createdAt DateTime @default(now())
+
+  notes              Note[]  
+}
+
+model Testimonial {
+  id          String   @id @default(uuid())
+  name        String
+  role        String
+  company     String
+  rating      Int    
+  comment     String
+  service     String
+  avatar      String?
+  avatarID    String?  
+  published   Boolean  @default(false)
+
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+
+model Project {
+  id           String   @id @default(cuid())
+  title        String
+  mission      String
+  category     String
+  client       String
+  completeDate DateTime
+  demoUrl      String
+  overView     String   @db.Text
+  features     String[] @default([])
+  technologies String[] @default([])
+  testimonial  Json     // Single { quote: string, author: string } object
+  images       Json[]   // Array of { url: string, publicId: string }
+  featured     Boolean  @default(false)
+  published    Boolean  @default(false)
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+}
+
+ model Meeting {
+  id          String   @id @default(uuid())  
+  name        String  
+  email       String  
+  phone       String  
+  service     String  
+  message     String?  
+  bookingDate DateTime  
+  bookingTime String  
+  timezone    String  
+  status      String  @default("pending")  
+  createdAt   DateTime @default(now())  
+  updatedAt   DateTime @updatedAt 
+ }
+
+
+model Graphicdesign {
+  id              String   @id @default(uuid()) 
+  title           String
+  description    String 
+  category        String
+  imageLink       String
+  imagePublicID   String
+  completeDate    DateTime
+  featured        Boolean  @default(false)
+  published       Boolean  @default(false)
+
+  createdAt   DateTime @default(now())  
+  updatedAt   DateTime @updatedAt 
+}
