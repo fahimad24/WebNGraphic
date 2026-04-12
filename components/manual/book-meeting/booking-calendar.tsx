@@ -11,6 +11,7 @@ import BookingForm from "./booking-form";
 import TimeSlotPicker from "./time-slot-picker";
 
 export default function BookingCalendar() {
+  const [isMounted, setIsMounted] = useState(false);
   const [selectedDate, setSelectedDate] = useState<Date | undefined>();
   const [selectedTime, setSelectedTime] = useState<string | null>(null);
   const [step, setStep] = useState<"date" | "time" | "form" | "confirmation">(
@@ -26,6 +27,10 @@ export default function BookingCalendar() {
   // Calculate date range (today to next 3 days)
   const today = new Date();
   const maxDate = addDays(today, 7);
+
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
 
   // Reset time selection when date changes
   useEffect(() => {
@@ -83,6 +88,18 @@ export default function BookingCalendar() {
     setBookingDetails(null);
     setStep("date");
   };
+
+  if (!isMounted) {
+    return (
+      <Card className="w-full overflow-hidden border-2 border-Ttext py-0 shadow-lg">
+        <CardContent className="p-0">
+          <div className="flex min-h-[360px] items-center justify-center p-8 text-sm text-muted-foreground">
+            Loading booking calendar...
+          </div>
+        </CardContent>
+      </Card>
+    );
+  }
 
   return (
     <Card className="w-full overflow-hidden border-2 border-Ttext py-0 shadow-lg">
