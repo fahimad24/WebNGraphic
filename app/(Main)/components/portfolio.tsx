@@ -18,7 +18,7 @@ export default async function PortfolioSection() {
 
           <div className="flex mt-12 justify-center w-full">
             <Link href="/portfolio">
-              <NormalButton>View all Projects</NormalButton>
+              <NormalButton className="py-3.5">View all Projects</NormalButton>
             </Link>
           </div>
         </div>

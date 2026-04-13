@@ -242,7 +242,7 @@ function PortfolioCard({ project, onViewDetails }: PortfolioCardProps) {
             onClick={onViewDetails}
             className="flex pr-2 !w-full cursor-pointer justify-between items-center gap-1 text-sm font-semibold text-Ttext hover:text-TtextH transition-colors duration-200"
           >
-            <button className="cursor-pointer">View Details</button>
+            <button className="cursor-pointer text-lg">View Case Study</button>
             <ArrowRight
               size={25}
               className="transition-all duration-500 group-hover:translate-x-3"

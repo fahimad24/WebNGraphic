@@ -13,6 +13,7 @@ import TestimonialSection from "./components/testimonial-section";
 import WhyChooseUs from "./components/why-choose-us";
 import TrustBadges from "./components/trust-badges";
 import SponsorMarquee from "./components/sponsor-marquee";
+import TrustedByBusinessesWorldwide from "./components/trusted-by-businesses-worldwide";
 
 export const dynamic = "force-dynamic";
 
@@ -70,6 +71,7 @@ export default async function Home() {
       <HomeHero />
       <SponsorMarquee />
       <OurServices />
+      <TrustedByBusinessesWorldwide />
       <WhyChooseUs />
       <HowWeWork
         process={creativeProcess}
