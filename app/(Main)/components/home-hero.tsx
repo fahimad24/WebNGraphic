@@ -45,11 +45,11 @@ export default function HomeHero() {
               className="flex justify-center md:justify-start gap-4 items-center mt-5 md:mt-8"
             >
               <ResModTrigBtn>
-                <NormalButton>Work With Us </NormalButton>
+                <NormalButton>Get a Free Quote</NormalButton>
               </ResModTrigBtn>
               <Link href="/portfolio">
                 <NormalButton className="bg-transparent border-White hover:shadow-lg active:scale-95 active:bg-white hover:shadow-white hover:bg-white hover:text-black border-[2px]">
-                  View Our Works
+                  View Portfolio
                 </NormalButton>
               </Link>
             </motion.div>
