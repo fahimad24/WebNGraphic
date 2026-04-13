@@ -40,12 +40,20 @@ const creativeProcess = [
   },
 ];
 export const metadata: Metadata = {
+  title: "WebNGraphic Custom Website Design & Development for Brands",
   description:
-    "WebNGraphic provides custom web development and graphic design services to help businesses create stunning websites and visual identities that convert visitors into customers.",
+    "Get custom website design, web development, and branding support from WebNGraphic. We build high-performing sites for business projects that convert.",
   alternates: {
     canonical: "https://webngraphic.com",
+    languages: {
+      en: "https://webngraphic.com",
+      "x-default": "https://webngraphic.com",
+    },
   },
   openGraph: {
+    type: "website",
+    url: "https://webngraphic.com",
+    siteName: "WebNGraphic",
     images: [
       {
         url: "opengraph/home.jpg",
@@ -70,8 +78,8 @@ export default async function Home() {
       />
       <HomeHero />
       <SponsorMarquee />
-      <OurServices />
       <TrustedByBusinessesWorldwide />
+      <OurServices />
       <WhyChooseUs />
       <HowWeWork
         process={creativeProcess}

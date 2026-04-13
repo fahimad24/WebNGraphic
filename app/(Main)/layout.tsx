@@ -2,7 +2,7 @@ import { WhatsAppChatButton } from "@/components/manual/button/whatsapp-chat-but
 import MainNavbar from "@/components/manual/Navbar/MainNavbar";
 import { Toaster } from "@/components/ui/sonner";
 import { ResponseModalProvider } from "@/context/response-form-modal";
-import { organization } from "@/scheema";
+import { localBusinessSchema, organization, websiteSchema } from "@/scheema";
 import { GoogleAnalytics } from "@next/third-parties/google";
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
@@ -25,7 +25,7 @@ export const metadata: Metadata = {
     default: "WebNGraphic | Web Development & Graphic Design Services",
   },
   description:
-    "WebNGraphic offers professional web development and graphic design services to help businesses establish a strong online presence with custom websites and stunning visuals.",
+    "Professional web development and graphic design services to help businesses establish a strong online presence.",
   keywords: [
     "web development",
     "graphic design",
@@ -58,6 +58,10 @@ export const metadata: Metadata = {
   },
   alternates: {
     canonical: "/",
+    languages: {
+      en: "/",
+      "x-default": "/",
+    },
   },
   openGraph: {
     type: "website",
@@ -100,6 +104,18 @@ export default function MainLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify(organization),
+          }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(websiteSchema),
+          }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(localBusinessSchema),
           }}
         />
       </head>

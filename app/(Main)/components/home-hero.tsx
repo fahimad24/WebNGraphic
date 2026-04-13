@@ -10,63 +10,22 @@ import { motion } from "framer-motion";
 export default function HomeHero() {
   return (
     <div className="section-background overflow-hidden relative">
-      <div className="md:py-26 py-12 max-w-7xl mx-auto items-center flex-col md:flex-row flex w-full justify-between px-5 md:px-12 gap-8">
+      <div className="md:py-26 py-12 max-w-7xl mx-auto items-center flex-col lg:flex-row flex w-full justify-between px-5 md:px-12 gap-8">
         
         {/* DESKTOP LAYOUT */}
         <motion.div 
-          className="relative hidden md:block z-10"
+          className="relative  z-10"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1, transition: { staggerChildren: 0.2 } }}
           viewport={{ once: true, amount: 0.3 }}
         >
-          <div className="flex flex-col items-center md:items-start text-center md:text-left max-w-4xl mx-auto">
-            <motion.h1 
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0, transition: { duration: 0.6 } }}
-              viewport={{ once: true }}
-              className="uppercase text-6xl font-bold text-Ttext leading-18"
-            >
-              Build a Custom Website That Turns Visitors Into Customers
-            </motion.h1>
-            <motion.p 
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0, transition: { duration: 0.6 } }}
-              viewport={{ once: true }}
-              className="text-white mt-6 text-xl md:text-2xl lg:text-2xl max-w-2xl"
-            >
-              We provide expert web development, web design, and graphic design. Launch a conversion-focused site in 4-6 weeks. Request a free project estimate.
-            </motion.p>
-            <motion.div 
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0, transition: { duration: 0.6 } }}
-              viewport={{ once: true }}
-              className="flex justify-center md:justify-start gap-4 items-center mt-5 md:mt-8"
-            >
-              <ResModTrigBtn>
-                <NormalButton className="py-3.5">Book A Free Consultation</NormalButton>
-              </ResModTrigBtn>
-              <Link href="/portfolio">
-                <NormalButton className="bg-transparent border-White hover:shadow-lg active:scale-95 active:bg-white hover:shadow-white hover:bg-white hover:text-black border-[2px] py-3.5">
-                  View Portfolio
-                </NormalButton>
-              </Link>
-            </motion.div>
-          </div>
-        </motion.div>
+          <div className="flex flex-col items-center lg:items-start text-center lg:text-left max-w-4xl mx-auto">
 
-        {/* MOBILE LAYOUT */}
-        <motion.div 
-          className="relative md:hidden z-10 pb-20"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1, transition: { staggerChildren: 0.2 } }}
-          viewport={{ once: true, amount: 0.2 }}
-        >
-          <div className="mx-auto flex flex-col items-center md:items-start text-center md:text-left">
             <motion.div 
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0, transition: { duration: 0.6 } }}
               viewport={{ once: true }}
-              className="h-[250px] w-[270px] mb-10 relative"
+              className="sm:h-[250px] md:h-64 md:w-sm lg:hidden mb-10 relative"
             >
               <div className="absolute z-11 top-0 left-0">
                 <div className="w-[170px] h-[150px] overflow-hidden rounded-md relative ">
@@ -96,53 +55,44 @@ export default function HomeHero() {
                 </div>
               </div>
             </motion.div>
-
-            {/* Title */}
             <motion.h1 
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0, transition: { duration: 0.6 } }}
               viewport={{ once: true }}
-              className="uppercase text-2xl font-bold text-Ttext"
+              className="uppercase lg:text-6xl md:text-4xl text-2xl font-bold text-Ttext lg:leading-18"
             >
-              Build a Custom Website That Turns Visitors Into Customers
+             Build aCustom Website That Turns Visitors Into Customers
             </motion.h1>
-
-            {/* Subheading */}
             <motion.p 
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0, transition: { duration: 0.6 } }}
               viewport={{ once: true }}
-              className="text-gray-300 mt-4 text-lg md:text-xl lg:text-2xl max-w-3xl"
+              className="text-white mt-6 text-lg md:text-2xl lg:text-2xl "
             >
               We provide expert web development, web design, and graphic design. Launch a conversion-focused site in 4-6 weeks. Request a free project estimate.
             </motion.p>
-
-            {/* Decorative Line */}
             <motion.div 
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0, transition: { duration: 0.6 } }}
               viewport={{ once: true }}
-              className="w-20 h-1 bg-white mt-6 md:mt-8"
-            ></motion.div>
-
-            {/* CTA Section */}
-            <motion.div 
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0, transition: { duration: 0.6 } }}
-              viewport={{ once: true }}
-              className="flex flex-col sm:flex-row justify-center md:justify-start gap-4 items-center mt-6 md:mt-8"
+              className="flex justify-center w-full md:flex-row flex-col lg:justify-start gap-4 items-center mt-5 md:mt-8"
             >
               <ResModTrigBtn>
                 <NormalButton className="py-3.5">Book A Free Consultation</NormalButton>
               </ResModTrigBtn>
-
-              <NormalButton className="bg-transparent border-White hover:shadow-lg active:scale-95 active:bg-white hover:shadow-white hover:bg-white hover:text-black border-[2px] w-full sm:w-auto flex justify-center py-3.5">
-                <Link href="/portfolio">View Portfolio</Link>
-              </NormalButton>
+              <div className="w-full md:w-auto">
+              <Link href="/portfolio">
+                <NormalButton className="bg-transparent border-White hover:shadow-lg active:scale-95 active:bg-white hover:shadow-white hover:bg-white hover:text-black border-[2px] py-3.5 w-full max-sm:flex justify-center">
+                  View Portfolio
+                </NormalButton>
+              </Link>
+              </div>
             </motion.div>
           </div>
         </motion.div>
-
+        
+        
+      
         {/* RIGHT SIDE FORM */}
         <motion.div
            initial={{ opacity: 0, x: 50 }}

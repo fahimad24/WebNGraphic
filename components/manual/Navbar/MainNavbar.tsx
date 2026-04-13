@@ -42,7 +42,7 @@ const MainNavbar: React.FC = () => {
       aria-label="Main Navigation"
     >
       {/* Top bar for mobile with contact info */}
-      <div className="md:hidden bg-Sbg text-white px-5 py-2 w-full flex">
+      <div className="lg:hidden bg-Sbg text-white px-5 py-2 w-full flex">
         <div className="flex w-full justify-between items-center gap-5">
           <Link
             href={`mailto:${emailAddress}`}
@@ -81,7 +81,7 @@ const MainNavbar: React.FC = () => {
           </Link>
 
           {/* Desktop navigation */}
-          <ul className="hidden md:flex items-center ml-7 gap-4">
+          <ul className="hidden lg:flex items-center ml-7 gap-4">
             <li className="relative group">
               <button
                 type="button"
@@ -147,7 +147,7 @@ const MainNavbar: React.FC = () => {
         </div>
 
         {/* Desktop contact info */}
-        <div className="hidden md:flex items-center gap-5 text-sm">
+        <div className="hidden lg:flex items-center gap-5 text-sm">
           <Link
             href={`mailto:${emailAddress}`}
             className="flex items-center gap-1"
@@ -182,7 +182,7 @@ const MainNavbar: React.FC = () => {
           aria-label={isMenuOpen ? "Close menu" : "Open menu"}
           aria-expanded={isMenuOpen}
           onClick={() => setIsMenuOpen(!isMenuOpen)}
-          className={`md:hidden w-8 h-8 border-white rounded transition-all duration-100 ease-in-out flex items-center justify-center ${
+          className={`lg:hidden w-8 h-8 border-white rounded transition-all duration-100 ease-in-out flex items-center justify-center ${
             isMenuOpen ? "p-1 border-[2px]" : "p-0 border-0"
           }`}
           type="button"
@@ -193,7 +193,7 @@ const MainNavbar: React.FC = () => {
 
       {/* Mobile Menu */}
       <div
-        className={`md:hidden absolute top-[110px] z-[100] w-full bg-Mbg text-white transition-all duration-200 ease-in-out ${
+        className={`lg:hidden absolute top-[110px] z-[100] w-full bg-Mbg text-white transition-all duration-200 ease-in-out ${
           isMenuOpen
             ? "h-[calc(100vh-120px)] overflow-y-auto"
             : "h-0 overflow-hidden"

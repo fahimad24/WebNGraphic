@@ -13,7 +13,12 @@ export const organization: WithContext<Organization> = {
   "@type": "Organization",
   name: "WebNGraphic",
   url: "https://webngraphic.com",
-  logo: "https://webngraphic.com/icons/logoicon.png",
+  logo: {
+    "@type": "ImageObject",
+    url: "https://webngraphic.com/icons/logoicon.png",
+    width: "512",
+    height: "512",
+  },
   contactPoint: {
     "@type": "ContactPoint",
     telephone: process.env.NEXT_PUBLIC_PHONE_NUMBER2,
@@ -23,6 +28,76 @@ export const organization: WithContext<Organization> = {
     contactOption: "TollFree",
   },
   sameAs: process.env.NEXT_PUBLIC_FACEBOOK_PAGE,
+};
+
+export const websiteSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "@id": "https://webngraphic.com/#website",
+  url: "https://webngraphic.com",
+  name: "WebNGraphic",
+  inLanguage: "en",
+  publisher: {
+    "@id": "https://webngraphic.com/#organization",
+  },
+  potentialAction: {
+    "@type": "SearchAction",
+    target: {
+      "@type": "EntryPoint",
+      urlTemplate: "https://webngraphic.com/blog?search={search_term_string}",
+    },
+    "query-input": {
+      "@type": "PropertyValueSpecification",
+      valueRequired: true,
+      valueName: "search_term_string",
+    },
+  },
+};
+
+export const localBusinessSchema = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "@id": "https://webngraphic.com/#localbusiness",
+  name: "WebNGraphic",
+  url: "https://webngraphic.com",
+  image: "https://webngraphic.com/opengraph/home.jpg",
+  logo: "https://webngraphic.com/icons/logoicon.png",
+  telephone:
+    process.env.NEXT_PUBLIC_PHONE_NUMBER2 || process.env.NEXT_PUBLIC_PHONE_NUMBER,
+  email: process.env.NEXT_PUBLIC_EMAIL_ADDRESS,
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: process.env.NEXT_PUBLIC_ADDRESS2 || process.env.NEXT_PUBLIC_ADDRESS,
+    addressCountry: "AU",
+  },
+  geo: {
+    "@type": "GeoCoordinates",
+    latitude: "-33.8688",
+    longitude: "151.2093",
+  },
+  openingHoursSpecification: [
+    {
+      "@type": "OpeningHoursSpecification",
+      dayOfWeek: [
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday",
+      ],
+      opens: "09:00",
+      closes: "18:00",
+    },
+  ],
+  contactPoint: {
+    "@type": "ContactPoint",
+    contactType: "customer support",
+    telephone:
+      process.env.NEXT_PUBLIC_PHONE_NUMBER2 || process.env.NEXT_PUBLIC_PHONE_NUMBER,
+    email: process.env.NEXT_PUBLIC_EMAIL_ADDRESS,
+    areaServed: "Worldwide",
+    availableLanguage: ["English"],
+  },
 };
 
 export const serviceSchema: WithContext<Service> = {
@@ -39,13 +114,24 @@ export const serviceSchema: WithContext<Service> = {
 export const homePageSchema: WithContext<WebPage> = {
   "@context": "https://schema.org",
   "@type": "WebPage",
+  "@id": "https://webngraphic.com/#webpage",
   name: "WebNGraphic | Web Development & Graphic Design Services",
   url: "https://webngraphic.com",
   description:
-    "WebNGraphic offers professional web development and graphic design services to help businesses establish a strong online presence with custom websites and stunning visuals.",
+    "We provide expert web development, web design, and graphic design. Launch a conversion-focused site in 4-6 weeks. Request a free project estimate.",
   inLanguage: "en",
+  isPartOf: {
+    "@id": "https://webngraphic.com/#website",
+  },
+  primaryImageOfPage: {
+    "@type": "ImageObject",
+    url: "https://webngraphic.com/opengraph/home.jpg",
+    width: "1200",
+    height: "630",
+  },
   publisher: {
     "@type": "Organization",
+    "@id": "https://webngraphic.com/#organization",
     name: "WebNGraphic",
     url: "https://webngraphic.com",
     logo: {
@@ -58,6 +144,28 @@ export const homePageSchema: WithContext<WebPage> = {
     name: "Web Design and Graphic Design",
     description:
       "Custom websites and creative designs to enhance your brand's digital presence.",
+  },
+  breadcrumb: {
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "Home",
+        item: "https://webngraphic.com",
+      },
+    ],
+  },
+  potentialAction: {
+    "@type": "ReadAction",
+    target: {
+      "@type": "EntryPoint",
+      urlTemplate: "https://webngraphic.com",
+    },
+    agent: {
+      "@type": "Person",
+      name: "Website Visitor",
+    },
   },
 };
 
