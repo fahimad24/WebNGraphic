@@ -10,7 +10,7 @@ import { motion } from "framer-motion";
 export default function HomeHero() {
   return (
     <div className="section-background overflow-hidden relative">
-      <div className="py-26 max-w-7xl mx-auto items-center flex-col md:flex-row flex w-full justify-between px-5 md:px-12 gap-8">
+      <div className="md:py-26 py-12 max-w-7xl mx-auto items-center flex-col md:flex-row flex w-full justify-between px-5 md:px-12 gap-8">
         
         {/* DESKTOP LAYOUT */}
         <motion.div 
@@ -24,9 +24,9 @@ export default function HomeHero() {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0, transition: { duration: 0.6 } }}
               viewport={{ once: true }}
-              className="uppercase text-6xl font-bold text-Ttext"
+              className="uppercase text-6xl font-bold text-Ttext leading-18"
             >
-              Create Your Digital Future
+              Build a Custom Website That Turns Visitors Into Customers
             </motion.h1>
             <motion.p 
               initial={{ opacity: 0, y: 20 }}
@@ -34,9 +34,7 @@ export default function HomeHero() {
               viewport={{ once: true }}
               className="text-white mt-6 text-xl md:text-2xl lg:text-2xl max-w-2xl"
             >
-              We provide expert web development, web design, and graphic design
-              solutions tailored to elevate your brand and create a strong
-              digital presence.
+              We provide expert web development, web design, and graphic design. Launch a conversion-focused site in 4-6 weeks. Request a free project estimate.
             </motion.p>
             <motion.div 
               initial={{ opacity: 0, y: 20 }}
@@ -45,10 +43,10 @@ export default function HomeHero() {
               className="flex justify-center md:justify-start gap-4 items-center mt-5 md:mt-8"
             >
               <ResModTrigBtn>
-                <NormalButton>Get a Free Quote</NormalButton>
+                <NormalButton className="py-3.5">Book A Free Consultation</NormalButton>
               </ResModTrigBtn>
               <Link href="/portfolio">
-                <NormalButton className="bg-transparent border-White hover:shadow-lg active:scale-95 active:bg-white hover:shadow-white hover:bg-white hover:text-black border-[2px]">
+                <NormalButton className="bg-transparent border-White hover:shadow-lg active:scale-95 active:bg-white hover:shadow-white hover:bg-white hover:text-black border-[2px] py-3.5">
                   View Portfolio
                 </NormalButton>
               </Link>
@@ -58,17 +56,17 @@ export default function HomeHero() {
 
         {/* MOBILE LAYOUT */}
         <motion.div 
-          className="relative md:hidden z-10 pb-20 px-6"
+          className="relative md:hidden z-10 pb-20"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1, transition: { staggerChildren: 0.2 } }}
           viewport={{ once: true, amount: 0.2 }}
         >
-          <div className="max-w-[270px] mx-auto flex flex-col items-center md:items-start text-center md:text-left">
+          <div className="mx-auto flex flex-col items-center md:items-start text-center md:text-left">
             <motion.div 
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0, transition: { duration: 0.6 } }}
               viewport={{ once: true }}
-              className="h-[250px] mb-10 w-full relative"
+              className="h-[250px] w-[270px] mb-10 relative"
             >
               <div className="absolute z-11 top-0 left-0">
                 <div className="w-[170px] h-[150px] overflow-hidden rounded-md relative ">
@@ -104,9 +102,9 @@ export default function HomeHero() {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0, transition: { duration: 0.6 } }}
               viewport={{ once: true }}
-              className="uppercase text-3xl font-bold text-Ttext"
+              className="uppercase text-2xl font-bold text-Ttext"
             >
-              Create Your Digital Future
+              Build a Custom Website That Turns Visitors Into Customers
             </motion.h1>
 
             {/* Subheading */}
@@ -116,9 +114,7 @@ export default function HomeHero() {
               viewport={{ once: true }}
               className="text-gray-300 mt-4 text-lg md:text-xl lg:text-2xl max-w-3xl"
             >
-              We provide expert web development, web design, and graphic design
-              solutions tailored to elevate your brand and create a strong
-              digital presence.
+              We provide expert web development, web design, and graphic design. Launch a conversion-focused site in 4-6 weeks. Request a free project estimate.
             </motion.p>
 
             {/* Decorative Line */}
@@ -137,11 +133,11 @@ export default function HomeHero() {
               className="flex flex-col sm:flex-row justify-center md:justify-start gap-4 items-center mt-6 md:mt-8"
             >
               <ResModTrigBtn>
-                <NormalButton>Work With Us </NormalButton>
+                <NormalButton className="py-3.5">Book A Free Consultation</NormalButton>
               </ResModTrigBtn>
 
-              <NormalButton className="bg-transparent border-White hover:shadow-lg active:scale-95 active:bg-white hover:shadow-white hover:bg-white hover:text-black border-[2px]">
-                <Link href="/portfolio">View Our Works</Link>
+              <NormalButton className="bg-transparent border-White hover:shadow-lg active:scale-95 active:bg-white hover:shadow-white hover:bg-white hover:text-black border-[2px] w-full sm:w-auto flex justify-center py-3.5">
+                <Link href="/portfolio">View Portfolio</Link>
               </NormalButton>
             </motion.div>
           </div>

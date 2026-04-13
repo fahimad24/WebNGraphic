@@ -166,7 +166,7 @@ const ResponseForm: React.FC<ResponseFormProps> = ({ interest }) => {
                 <FormItem>
                   <FormControl>
                     <Input
-                      placeholder="Name"
+                      placeholder="Enter your name"
                       className="response-form-input w-full"
                       {...field}
                       aria-required="true"
@@ -184,7 +184,7 @@ const ResponseForm: React.FC<ResponseFormProps> = ({ interest }) => {
                 <FormItem>
                   <FormControl>
                     <Input
-                      placeholder="Email"
+                      placeholder="Enter your email"
                       type="email"
                       className="response-form-input w-full"
                       {...field}
@@ -203,7 +203,7 @@ const ResponseForm: React.FC<ResponseFormProps> = ({ interest }) => {
                 <FormItem>
                   <FormControl>
                     <Input
-                      placeholder="Phone"
+                      placeholder="Enter your phone number"
                       type="tel"
                       className="response-form-input w-full"
                       {...field}
@@ -222,7 +222,7 @@ const ResponseForm: React.FC<ResponseFormProps> = ({ interest }) => {
                 <FormItem>
                   <FormControl>
                     <Textarea
-                      placeholder="Message (optional)"
+                      placeholder="Enter your message (optional)"
                       className="response-form-input w-full !h-20"
                       {...field}
                       value={field.value || ""}
@@ -252,6 +252,9 @@ const ResponseForm: React.FC<ResponseFormProps> = ({ interest }) => {
               isLoading={loading}
               className="bg-Ttext cursor-pointer text-[#F1F1F1] hover:bg-TtextH active:bg-TtextA py-2 rounded-md w-full"
             />
+            <p className="text-sm text-gray-500 text-center">
+              We respond within 24 hours. No spam - unsubscribe anytime.
+            </p>
           </form>
         </Form>
       )}
