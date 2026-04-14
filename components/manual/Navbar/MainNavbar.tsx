@@ -128,7 +128,7 @@ const MainNavbar: React.FC = () => {
               { label: "About", href: "/about" },
               { label: "Contact", href: "/contact" },
               { label: "Portfolio", href: "/portfolio" },
-              { label: "Blog", href: "/blog" },
+              { label: "Blogs", href: "/blog" },
             ].map(({ label, href }) => (
               <li
                 key={href}

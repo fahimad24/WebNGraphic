@@ -25,7 +25,7 @@ export default function HomeHero() {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0, transition: { duration: 0.6 } }}
               viewport={{ once: true }}
-              className="sm:h-[250px] md:h-64 md:w-sm lg:hidden mb-10 relative"
+              className="h-[250px] w-full  md:h-64 md:w-sm lg:hidden mb-10 relative"
             >
               <div className="absolute z-11 top-0 left-0">
                 <div className="w-[170px] h-[150px] overflow-hidden rounded-md relative ">
@@ -61,7 +61,7 @@ export default function HomeHero() {
               viewport={{ once: true }}
               className="uppercase lg:text-6xl md:text-4xl text-2xl font-bold text-Ttext lg:leading-18"
             >
-             Build aCustom Website That Turns Visitors Into Customers
+             Build a Custom Website That Turns Visitors Into Customers
             </motion.h1>
             <motion.p 
               initial={{ opacity: 0, y: 20 }}
