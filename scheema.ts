@@ -304,7 +304,7 @@ export const blogPageSchema: WithContext<Blog> = {
   },
   mainEntityOfPage: {
     "@type": "WebPage",
-    "@id": "https://webngraphic.com/blog",
+    "@id": "https://webngraphic.com/blog#webpage",
   },
   image: {
     "@type": "ImageObject",
@@ -407,6 +407,17 @@ export const graphicDesignSchema: WithContext<Service> = {
     "@type": "WebPage",
     "@id": "https://webngraphic.com/graphic-design",
   },
+  potentialAction: {
+    "@type": "ReadAction",
+    target: {
+      "@type": "EntryPoint",
+      urlTemplate: "https://webngraphic.com/graphic-design",
+    },
+    agent: {
+      "@type": "Person",
+      name: "Website Visitor",
+    },
+  } as ReadAction,
 };
 export const webDevelopmentSchema: WithContext<WebPage> = {
   "@context": "https://schema.org",
@@ -439,6 +450,17 @@ export const webDevelopmentSchema: WithContext<WebPage> = {
     description:
       "We offer comprehensive web development solutions including NDIS websites, CMS systems, e-commerce platforms, and custom web apps tailored for your business.",
   } as Service,
+  potentialAction: {
+    "@type": "ReadAction",
+    target: {
+      "@type": "EntryPoint",
+      urlTemplate: "https://webngraphic.com/web-development",
+    },
+    agent: {
+      "@type": "Person",
+      name: "Website Visitor",
+    },
+  } as ReadAction,
 };
 
 export const webDevBreadcrumbSchema: WithContext<BreadcrumbList> = {

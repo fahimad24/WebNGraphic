@@ -20,7 +20,7 @@ export default function Pricing({ pricing, service }: PricingProps) {
   return (
     <div className="bg-gray-100 px-5 py-16 md:px-12">
       <div className="max-w-7xl space-y-10 mx-auto">
-        <h1 className="text-4xl text-center font-bold">Our Pricing Plans</h1>
+        <h2 className="text-4xl text-center font-bold">Our Pricing Plans</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 justify-center gap-10">
           {pricing.map((plan, i) => (
             <div

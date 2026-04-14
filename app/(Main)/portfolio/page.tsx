@@ -9,17 +9,23 @@ import ProjectWebDev from "./components/project-web-dev";
 export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = {
-  title: "Portfolio",
+  title: "WebNGraphic Portfolio | Showing Our Best Work",
   description:
-    "Browse our portfolio of successful web development and graphic design projects. See how we've helped businesses across various industries establish a strong online presence.",
+    "Explore WebNGraphic's portfolio of web development and graphic design projects that helped businesses grow with modern, conversion-focused digital work.",
   alternates: {
     canonical: "https://webngraphic.com/portfolio",
+    languages: {
+      en: "https://webngraphic.com/portfolio",
+      "x-default": "https://webngraphic.com/portfolio",
+    },
   },
   openGraph: {
     title: "WebNGraphic Portfolio | Our Best Work",
     description:
       "Explore our showcase of web development and graphic design projects that demonstrate our expertise and creative approach.",
     url: "https://webngraphic.com/portfolio",
+    type: "article",
+    siteName: "WebNGraphic",
     images: [
       {
         url: "opengraph/blog.jpg",
@@ -27,6 +33,7 @@ export const metadata: Metadata = {
         height: 630,
         alt: "WebNGraphic Portfolio Projects",
       },
+
     ],
   },
 };
@@ -57,7 +64,7 @@ export default function Page() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(portfolioBreadcrumbSchema) }}
       />
       <TopSectionStatic
-        title="Portfolio"
+        title="Our Portfolio"
         description="A curated collection of web and graphic design work that blends strategy, aesthetics, and functionality."
         breadcrumb={[{ label: "portfolio", link: "/portfolio" }]}
       />

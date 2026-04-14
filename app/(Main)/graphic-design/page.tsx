@@ -68,11 +68,15 @@ const pricingPlans = [
 ];
 
 export const metadata: Metadata = {
-  title: "Graphic Design Services",
+  title: "WebNGraphic Custom Website Design & Development for Brands",
   description:
-    "Professional graphic design services tailored to elevate your brand. We specialize in logo design, brand identity, print media, UI/UX design, and eye-catching visuals for digital platforms.",
+    "Get custom website design, web development, and branding support from WebNGraphic. We build high-performing sites for business projects that convert.",
   alternates: {
     canonical: "https://webngraphic.com/graphic-design",
+    languages: {
+      en: "https://webngraphic.com/graphic-design",
+      "x-default": "https://webngraphic.com/graphic-design",
+    },
   },
   keywords: [
     "graphic design services",

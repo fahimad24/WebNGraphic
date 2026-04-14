@@ -21,9 +21,9 @@ export default function OurFeature() {
         <div className="flex max-sm:flex-col-reverse gap-10 items-start">
           <div className="space-y-8 md:w-3/5 w-full">
             <div className="space-y-4">
-              <h1 className="text-3xl lg:text-4xl font-bold  leading-tight">
+              <h2 className="text-3xl lg:text-4xl font-bold  leading-tight">
                 Powerful & Scalable Website Features
-              </h1>
+              </h2>
               <p className="text-black/90 text-lg max-w-xl">
                 We build high-performance, secure, and future-ready websites
                 with cutting-edge technology to elevate your online presence.

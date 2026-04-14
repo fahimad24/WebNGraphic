@@ -73,11 +73,15 @@ const pricingPlans = [
 ];
 
 export const metadata: Metadata = {
-  title: "Web Development Services",
+  title: "WebNGraphic Custom Website Design & Development for Brands",
   description:
-    "Boost your online presence with our expert web development services. We specialize in responsive websites, NDIS websites, e-commerce platforms, and modern web applications using Next.js and React.",
+    "Get custom website design, web development, and branding support from WebNGraphic. We build high-performing sites for business projects that convert.",
   alternates: {
     canonical: "https://webngraphic.com/web-development",
+    languages: {
+      en: "https://webngraphic.com/web-development",
+      "x-default": "https://webngraphic.com/web-development",
+    },
   },
   keywords: [
     "web development services",
@@ -91,7 +95,7 @@ export const metadata: Metadata = {
     "frontend and backend development",
   ],
   openGraph: {
-    title: "Web Development Services | WebNGraphic",
+    title: "WebNGraphic Custom Website Design & Development for Brands",
     description:
       "Professional web development for businesses and organizations. We build responsive websites, e-commerce solutions, and web apps using the latest frameworks.",
     url: "https://webngraphic.com/web-development",
