@@ -1,8 +1,11 @@
 import type {
+  Article,
   Blog,
   BlogPosting,
   BreadcrumbList,
   Organization,
+  Person,
+  ReadAction,
   Service,
   WebPage,
   WithContext,
@@ -11,8 +14,10 @@ import type {
 export const organization: WithContext<Organization> = {
   "@context": "https://schema.org",
   "@type": "Organization",
+  "@id": "https://webngraphic.com/#organization",
   name: "WebNGraphic",
   url: "https://webngraphic.com",
+  image: "https://webngraphic.com/opengraph/home.jpg",
   logo: {
     "@type": "ImageObject",
     url: "https://webngraphic.com/icons/logoicon.png",
@@ -172,6 +177,7 @@ export const homePageSchema: WithContext<WebPage> = {
 export const aboutPageSchema: WithContext<WebPage> = {
   "@context": "https://schema.org",
   "@type": "AboutPage",
+  "@id": "https://webngraphic.com/about#aboutpage",
   name: "About us | WebNGraphic",
   url: "https://webngraphic.com/about",
   description:
@@ -205,6 +211,77 @@ export const aboutPageSchema: WithContext<WebPage> = {
         item: "https://webngraphic.com/about",
       },
     ],
+  },
+};
+
+export const aboutWebPageSchema: WithContext<WebPage> = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "@id": "https://webngraphic.com/about#webpage",
+  name: "About WebNGraphic",
+  url: "https://webngraphic.com/about",
+  description:
+    "Learn about WebNGraphic's story, team, and approach to web development and graphic design.",
+  inLanguage: "en",
+  isPartOf: {
+    "@id": "https://webngraphic.com/#website",
+  },
+  primaryImageOfPage: {
+    "@type": "ImageObject",
+    url: "https://webngraphic.com/opengraph/about.jpg",
+    width: "1200",
+    height: "630",
+  },
+  publisher: {
+    "@id": "https://webngraphic.com/#organization",
+  },
+  potentialAction: {
+    "@type": "ReadAction",
+    target: {
+      "@type": "EntryPoint",
+      urlTemplate: "https://webngraphic.com/about",
+    },
+    agent: {
+      "@type": "Person",
+      name: "WebNGraphic Team",
+    },
+  } as ReadAction,
+};
+
+export const aboutPersonSchema: WithContext<Person> = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "@id": "https://webngraphic.com/about#person",
+  name: "WebNGraphic Team",
+  jobTitle: "Creative and Development Team",
+  url: "https://webngraphic.com/about",
+  image: "https://webngraphic.com/opengraph/about.jpg",
+  worksFor: {
+    "@id": "https://webngraphic.com/#organization",
+  },
+};
+
+export const aboutArticleSchema: WithContext<Article> = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "@id": "https://webngraphic.com/about#article",
+  headline: "About WebNGraphic",
+  description:
+    "A summary of WebNGraphic's story, team, and approach to web development and graphic design.",
+  articleBody:
+    "WebNGraphic began its journey in 2020 with a group of passionate designers and developers. Our goal was to bring a creative change in the digital space through smart design and web solutions.",
+  image: ["https://webngraphic.com/opengraph/about.jpg"],
+  author: {
+    "@id": "https://webngraphic.com/about#person",
+  },
+  publisher: {
+    "@id": "https://webngraphic.com/#organization",
+  },
+  mainEntityOfPage: {
+    "@id": "https://webngraphic.com/about#webpage",
+  },
+  about: {
+    "@id": "https://webngraphic.com/#organization",
   },
 };
 

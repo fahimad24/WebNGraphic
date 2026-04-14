@@ -27,7 +27,7 @@ export default function Footer() {
                   height={50}
                 />
               </div>
-              <h1 className="text-lg font-bold">WEBNGRAPHIC</h1>
+              <h2 className="text-lg font-bold">WEBNGRAPHIC</h2>
             </div>
             <p className="text-sm text-gray-300">
               Creating exceptional web experiences that drive business growth.
