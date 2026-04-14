@@ -24,7 +24,7 @@ export default function TrustedByBusinessesWorldwide() {
       <div className="mx-auto max-w-7xl px-5 py-26 md:px-12">
         <div className="flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
           <div className="max-w-2xl space-y-4">
-            <div className="inline-flex items-center gap-2 rounded-full border border-sky-200 bg-sky-50 px-4 py-1.5 text-sm font-semibold text-sky-700">
+            <div className="inline-flex items-center gap-2 rounded-full border border-sky-200 bg-sky-50 px-4 py-1.5 text-sm font-semibold text-Ttext">
               <Sparkles className="h-4 w-4" />
               Trusted by Businesses Worldwide
             </div>
@@ -42,7 +42,7 @@ export default function TrustedByBusinessesWorldwide() {
                 key={item.label}
                 className="rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-center"
               >
-                <p className="text-2xl font-bold text-sky-700 md:text-3xl">{item.value}</p>
+                <p className="text-2xl font-bold text-Ttext md:text-3xl">{item.value}</p>
                 <p className="text-sm font-medium text-slate-600">{item.label}</p>
               </div>
             ))}
@@ -59,7 +59,7 @@ export default function TrustedByBusinessesWorldwide() {
             {industries.map((industry) => (
               <span
                 key={industry}
-                className="rounded-full border border-sky-200 bg-white px-3.5 py-1.5 text-sm font-medium text-sky-700"
+                className="rounded-full border border-sky-200 bg-white px-3.5 py-1.5 text-sm font-medium text-Ttext"
               >
                 {industry}
               </span>

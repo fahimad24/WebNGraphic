@@ -88,7 +88,7 @@ const MainNavbar: React.FC = () => {
                 className={`flex items-center gap-2 py-2 px-1 text-sm capitalize nav-option ${
                   pathname === "/web-development" ||
                   pathname === "/graphic-design"
-                    ? "actived"
+                    ? "active"
                     : ""
                 }`}
                 aria-haspopup="true"
@@ -96,7 +96,7 @@ const MainNavbar: React.FC = () => {
               >
                 <LaptopMinimal
                   strokeWidth={pathname === "/services" ? 3 : 2}
-                  className="w-5 h-5 pl-2"
+                  className={`w-5 h-5 pl-2 ${pathname === '/web-development' || pathname === '/graphic-design' ? 'text-Ttext' : 'text-white'}`}
                   aria-hidden="true"
                 />
                 <span>Services</span>
@@ -136,7 +136,7 @@ const MainNavbar: React.FC = () => {
               >
                 <Link
                   href={href}
-                  className={pathname === href ? "actived" : ""}
+                  className={pathname === href ? "active" : ""}
                   aria-current={pathname === href ? "page" : undefined}
                 >
                   {label}
