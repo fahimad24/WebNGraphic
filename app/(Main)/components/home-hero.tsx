@@ -75,7 +75,7 @@ export default function HomeHero() {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0, transition: { duration: 0.6 } }}
               viewport={{ once: true }}
-              className="flex justify-center w-full md:flex-row flex-col lg:justify-start gap-4 items-center mt-5 md:mt-8"
+              className="flex justify-center max-w-md md:flex-row flex-col lg:justify-start gap-4 items-center mt-5 md:mt-8"
             >
               <ResModTrigBtn>
                 <NormalButton className="py-3.5">Book A Free Consultation</NormalButton>
