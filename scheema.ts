@@ -372,6 +372,17 @@ export const generateBlogSchema = (blog: {
     "@type": "WebPage",
     "@id": `https://webngraphic.com/blog/${blog.id}`,
   },
+  potentialAction: {
+    "@type": "ReadAction",
+    target: {
+      "@type": "EntryPoint",
+      urlTemplate: `https://webngraphic.com/blog/${blog.id}`,
+    },
+    agent: {
+      "@type": "Person",
+      name: "Website Visitor",
+    },
+  } as ReadAction,
 });
 
 export const graphicDesignSchema: WithContext<Service> = {

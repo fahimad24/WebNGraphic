@@ -13,7 +13,7 @@ import IndividualBlogPage from "../components/individual-blog-page";
 export const dynamic = "force-dynamic";
 
 // Generate metadata for SEO
-function getExcerpt(content: string, maxLength = 160): string {
+function getExcerpt(content: string, maxLength = 157): string {
   const plainText = content
     .replace(/<[^>]+>/g, "")
     .replace(/\s+/g, " ")
@@ -41,16 +41,21 @@ export async function generateMetadata({
   const excerpt = getExcerpt(blog.content);
 
   return {
-    title: `${blog.title} | WebNGraphic`,
+    title: `${blog.title}.`,
     description: excerpt,
     alternates: {
       canonical: `https://webngraphic.com/blog/${id}`,
+      languages: {
+        en: `https://webngraphic.com/blog/${id}`,
+        "x-default": `https://webngraphic.com/blog/${id}`,
+      },
     },
     openGraph: {
       title: blog.title,
       description: excerpt,
       url: `https://webngraphic.com/blog/${id}`,
       type: "article",
+      siteName: "WebNGraphic",
       publishedTime: format(new Date(blog.createdAt), "MMMM d, yyyy"),
       authors: blog.author?.name ? [blog.author.name] : [],
       images: [
@@ -66,6 +71,8 @@ export async function generateMetadata({
       card: "summary_large_image",
       title: blog.title,
       description: excerpt,
+      site: "@WebNGraphic",
+      creator: blog.author?.name ? `@${blog.author.name.replace(/\s+/g, "")}` : "@WebNGraphic",
       images: [blog.imageLink],
     },
   };
@@ -106,7 +113,7 @@ export default async function Page({
         }}
       />
       <TopSectionStatic
-        title="Blog"
+        title="Blog Post Details"
         description={blog.title}
         breadcrumb={[
           { label: "Blog", link: "/blog" },

@@ -21,7 +21,7 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL("https://webngraphic.com"),
   title: {
-    template: "%s ",
+    template: "%s",
     default: "WebNGraphic | Web Development & Graphic Design Services",
   },
   description:
