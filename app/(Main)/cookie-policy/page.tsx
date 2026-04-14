@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { createBreadcrumbSchema, createWebPageSchema } from "@/scheema";
 
 export const metadata = {
   title: "Cookie Policy",
@@ -8,12 +9,38 @@ export const metadata = {
     canonical: "https://webngraphic.com/cookie-policy",
   },
 };
+
+const cookiePolicyWebPageSchema = createWebPageSchema({
+  id: "https://webngraphic.com/cookie-policy#webpage",
+  name: "Cookie Policy | WebNGraphic",
+  url: "https://webngraphic.com/cookie-policy",
+  description:
+    "Learn how WebNGraphic uses cookies and related technologies on this website.",
+});
+
+const cookiePolicyBreadcrumbSchema = createBreadcrumbSchema([
+  { name: "Home", item: "https://webngraphic.com" },
+  { name: "Cookie Policy", item: "https://webngraphic.com/cookie-policy" },
+]);
+
 export default function CookiePolicyPage() {
   const phoneNumber = process.env.NEXT_PUBLIC_PHONE_NUMBER;
   const emailAddress = process.env.NEXT_PUBLIC_EMAIL_ADDRESS;
   const address = process.env.NEXT_PUBLIC_ADDRESS;
   return (
     <div className="bg-white">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(cookiePolicyWebPageSchema),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(cookiePolicyBreadcrumbSchema),
+        }}
+      />
       <div className="max-w-7xl mx-auto px-5 py-12 md:py-24">
         <div className="mb-16 text-center">
           <h1 className="mb-4 text-4xl font-bold tracking-tight md:text-5xl lg:text-6xl">

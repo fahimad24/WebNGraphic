@@ -1,4 +1,5 @@
 import TopSectionStatic from "@/components/manual/header/top-section-static";
+import { createBreadcrumbSchema, createWebPageSchema } from "@/scheema";
 import { Metadata } from "next";
 import CTASection1 from "../components/cta-section-1";
 import TestimonialSection from "../components/testimonial-section";
@@ -29,9 +30,32 @@ export const metadata: Metadata = {
     ],
   },
 };
+
+const portfolioWebPageSchema = createWebPageSchema({
+  id: "https://webngraphic.com/portfolio#webpage",
+  name: "WebNGraphic Portfolio",
+  url: "https://webngraphic.com/portfolio",
+  description:
+    "Browse WebNGraphic's portfolio of web development and graphic design projects.",
+  imageUrl: "https://webngraphic.com/opengraph/blog.jpg",
+});
+
+const portfolioBreadcrumbSchema = createBreadcrumbSchema([
+  { name: "Home", item: "https://webngraphic.com" },
+  { name: "Portfolio", item: "https://webngraphic.com/portfolio" },
+]);
+
 export default function Page() {
   return (
     <div>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(portfolioWebPageSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(portfolioBreadcrumbSchema) }}
+      />
       <TopSectionStatic
         title="Portfolio"
         description="A curated collection of web and graphic design work that blends strategy, aesthetics, and functionality."

@@ -1,5 +1,6 @@
 import BookMeeting from "@/components/manual/book-meeting/book-meeting";
 import TopSectionStatic from "@/components/manual/header/top-section-static";
+import { createBreadcrumbSchema, createWebPageSchema } from "@/scheema";
 import { Mail, MapPin, Phone } from "lucide-react";
 import Link from "next/link";
 import { FaFacebook, FaLinkedin } from "react-icons/fa";
@@ -7,34 +8,56 @@ import { IoLogoWhatsapp } from "react-icons/io";
 import { ContactForm } from "./contact-form";
 
 export const metadata = {
-  title: "Contact Us ",
+  title: "Contact WebNGraphic | Web & Design Services",
   description:
-    "Reach out to WebNGraphic for a free consultation on your web development or graphic design project. We're here to answer your questions and help bring your vision to life.",
+    "Get in touch with WebNGraphic for a free consultation on web development or graphic design. Our team is ready to help bring your vision to life.",
   alternates: {
     canonical: "https://webngraphic.com/contact",
+    languages: {
+      en: "https://webngraphic.com/contact",
+      "x-default": "https://webngraphic.com/contact",
+    },
   },
   openGraph: {
     title: "Contact WebNGraphic | Web & Design Services",
     description:
-      "Get in touch with our team for a free consultation on your next web development or graphic design project.",
+      "Contact our team for a free consultation on your web development or graphic design project.",
     url: "https://webngraphic.com/contact",
+    type: "article",
+    siteName: "WebNGraphic",
     images: [
       {
         url: "opengraph/contact.jpg",
         width: 1200,
         height: 630,
-        alt: "WebNGraphic Graphic Design Services",
+        alt: "WebNGraphic Contact",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Contact Us - RPL Fast Track",
+    title: "Contact WebNGraphic | Web & Design Services",
     description:
-      "Contact RPL Fast Track Australia for help with your skills recognition and RPL process.",
+      "Contact us for a free consultation on web development or graphic design services.",
     images: ["opengraph/contact.jpg"],
+    site: "@WebNGraphic",
+    creator: "@WebNGraphic",
   },
 };
+
+const contactWebPageSchema = createWebPageSchema({
+  id: "https://webngraphic.com/contact#webpage",
+  name: "Contact WebNGraphic",
+  url: "https://webngraphic.com/contact",
+  description:
+    "Get in touch with WebNGraphic for web development and graphic design services.",
+  imageUrl: "https://webngraphic.com/opengraph/contact.jpg",
+});
+
+const contactBreadcrumbSchema = createBreadcrumbSchema([
+  { name: "Home", item: "https://webngraphic.com" },
+  { name: "Contact", item: "https://webngraphic.com/contact" },
+]);
 
 export default function ConatactPage() {
   const phoneNumber = process.env.NEXT_PUBLIC_PHONE_NUMBER;
@@ -46,6 +69,14 @@ export default function ConatactPage() {
   const whatsappNumber = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER;
   return (
     <div>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(contactWebPageSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(contactBreadcrumbSchema) }}
+      />
       <TopSectionStatic
         title="Get in Touch"
         description="Have a question or need assistance? Contact us and our team will be happy to help."

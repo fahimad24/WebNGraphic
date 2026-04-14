@@ -1,5 +1,6 @@
 /* eslint-disable react/no-unescaped-entities */
 import Link from "next/link";
+import { createBreadcrumbSchema, createWebPageSchema } from "@/scheema";
 export const metadata = {
   title: "Privacy Policy",
   description:
@@ -9,6 +10,19 @@ export const metadata = {
   },
 };
 
+const privacyPolicyWebPageSchema = createWebPageSchema({
+  id: "https://webngraphic.com/privacy-policy#webpage",
+  name: "Privacy Policy | WebNGraphic",
+  url: "https://webngraphic.com/privacy-policy",
+  description:
+    "Read how WebNGraphic collects, uses, and protects personal information.",
+});
+
+const privacyPolicyBreadcrumbSchema = createBreadcrumbSchema([
+  { name: "Home", item: "https://webngraphic.com" },
+  { name: "Privacy Policy", item: "https://webngraphic.com/privacy-policy" },
+]);
+
 export default function PrivacyPolicyPage() {
   const phoneNumber = process.env.NEXT_PUBLIC_PHONE_NUMBER;
   const emailAddress = process.env.NEXT_PUBLIC_EMAIL_ADDRESS;
@@ -16,6 +30,18 @@ export default function PrivacyPolicyPage() {
 
   return (
     <div className="bg-white">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(privacyPolicyWebPageSchema),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(privacyPolicyBreadcrumbSchema),
+        }}
+      />
       <div className="max-w-7xl mx-auto px-4 py-12 md:py-24">
         <div className="mb-16 text-center">
           <h1 className="mb-4 text-4xl font-bold tracking-tight md:text-5xl lg:text-6xl">

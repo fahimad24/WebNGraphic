@@ -1,5 +1,6 @@
 /* eslint-disable react/no-unescaped-entities */
 import Link from "next/link";
+import { createBreadcrumbSchema, createWebPageSchema } from "@/scheema";
 export const metadata = {
   title: "Terms of Service",
   description:
@@ -9,6 +10,22 @@ export const metadata = {
   },
 };
 
+const termsWebPageSchema = createWebPageSchema({
+  id: "https://webngraphic.com/terms-of-service#webpage",
+  name: "Terms of Service | WebNGraphic",
+  url: "https://webngraphic.com/terms-of-service",
+  description:
+    "Review the terms and conditions for using WebNGraphic services and website.",
+});
+
+const termsBreadcrumbSchema = createBreadcrumbSchema([
+  { name: "Home", item: "https://webngraphic.com" },
+  {
+    name: "Terms of Service",
+    item: "https://webngraphic.com/terms-of-service",
+  },
+]);
+
 export default function TermsOfServicePage() {
   const phoneNumber = process.env.NEXT_PUBLIC_PHONE_NUMBER;
   const emailAddress = process.env.NEXT_PUBLIC_EMAIL_ADDRESS;
@@ -16,6 +33,14 @@ export default function TermsOfServicePage() {
 
   return (
     <div className="bg-white">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(termsWebPageSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(termsBreadcrumbSchema) }}
+      />
       <div className="max-w-7xl mx-auto px-4 py-12 md:py-24">
         <div className="mb-16 text-center">
           <h1 className="mb-4 text-4xl font-bold tracking-tight md:text-5xl lg:text-6xl">

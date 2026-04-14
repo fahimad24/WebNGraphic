@@ -459,3 +459,72 @@ export const webDevBreadcrumbSchema: WithContext<BreadcrumbList> = {
     },
   ],
 };
+
+interface WebPageSchemaInput {
+  id: string;
+  name: string;
+  url: string;
+  description: string;
+  imageUrl?: string;
+}
+
+interface BreadcrumbItemInput {
+  name: string;
+  item: string;
+}
+
+export const createWebPageSchema = ({
+  id,
+  name,
+  url,
+  description,
+  imageUrl,
+}: WebPageSchemaInput): WithContext<WebPage> => ({
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "@id": id,
+  name,
+  url,
+  description,
+  inLanguage: "en",
+  isPartOf: {
+    "@id": "https://webngraphic.com/#website",
+  },
+  publisher: {
+    "@id": "https://webngraphic.com/#organization",
+  },
+  ...(imageUrl
+    ? {
+        primaryImageOfPage: {
+          "@type": "ImageObject",
+          url: imageUrl,
+          width: "1200",
+          height: "630",
+        },
+      }
+    : {}),
+  potentialAction: {
+    "@type": "ReadAction",
+    target: {
+      "@type": "EntryPoint",
+      urlTemplate: url,
+    },
+    agent: {
+      "@type": "Person",
+      name: "Website Visitor",
+    },
+  },
+});
+
+export const createBreadcrumbSchema = (
+  items: BreadcrumbItemInput[],
+): WithContext<BreadcrumbList> => ({
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: items.map((item, index) => ({
+    "@type": "ListItem",
+    position: index + 1,
+    name: item.name,
+    item: item.item,
+  })),
+});
