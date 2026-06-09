@@ -5,10 +5,8 @@ import { FaFacebook, FaLinkedin } from "react-icons/fa";
 import { IoLogoWhatsapp } from "react-icons/io";
 export default function Footer() {
   const phoneNumber = process.env.NEXT_PUBLIC_PHONE_NUMBER;
-  const phoneNumber2 = process.env.NEXT_PUBLIC_PHONE_NUMBER2;
   const emailAddress = process.env.NEXT_PUBLIC_EMAIL_ADDRESS;
   const address = process.env.NEXT_PUBLIC_ADDRESS;
-  const address2 = process.env.NEXT_PUBLIC_ADDRESS2;
   const facebookUrl = process.env.NEXT_PUBLIC_FACEBOOK_PAGE;
   const whatsappNumber = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER;
 
@@ -64,15 +62,6 @@ export default function Footer() {
               </a>
             </div>
             <div className="flex items-center">
-              <Phone className="h-4 w-4 text-gray-400 mr-2" />
-              <a
-                href={`tel:${phoneNumber2}`}
-                className="text-sm text-gray-300 hover:text-white transition-colors"
-              >
-                {phoneNumber2}
-              </a>
-            </div>
-            <div className="flex items-center">
               <Mail className="h-4 w-4 text-gray-400 mr-2" />
               <a
                 href={`mailto:${emailAddress}`}
@@ -84,10 +73,6 @@ export default function Footer() {
             <div className="flex items-start">
               <MapPin className="h-4 w-4 text-gray-400 mr-2 mt-0.5" />
               <span className="text-sm text-gray-300">{address}</span>
-            </div>
-            <div className="flex items-start">
-              <MapPin className="h-4 w-4 text-gray-400 mr-2 mt-0.5" />
-              <span className="text-sm text-gray-300">{address2}</span>
             </div>
           </div>
         </div>

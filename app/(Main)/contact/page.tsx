@@ -61,21 +61,23 @@ const contactBreadcrumbSchema = createBreadcrumbSchema([
 
 export default function ConatactPage() {
   const phoneNumber = process.env.NEXT_PUBLIC_PHONE_NUMBER;
-  const phoneNumber2 = process.env.NEXT_PUBLIC_PHONE_NUMBER2;
   const emailAddress = process.env.NEXT_PUBLIC_EMAIL_ADDRESS;
   const address = process.env.NEXT_PUBLIC_ADDRESS;
-  const address2 = process.env.NEXT_PUBLIC_ADDRESS2;
   const facebookUrl = process.env.NEXT_PUBLIC_FACEBOOK_PAGE;
   const whatsappNumber = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER;
   return (
     <div>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(contactWebPageSchema) }}
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(contactWebPageSchema),
+        }}
       />
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(contactBreadcrumbSchema) }}
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(contactBreadcrumbSchema),
+        }}
       />
       <TopSectionStatic
         title="Get in Touch"
@@ -90,21 +92,7 @@ export default function ConatactPage() {
                 <h2 className="text-3xl font-semibold text-gray-900">
                   Get In Touch
                 </h2>
-                <div className="flex p-4 rounded-md shadow-md bg-white items-center gap-4">
-                  <div className="bg-Ttext rounded-full">
-                    <Phone className="text-white w-12 h-12 p-3" />
-                  </div>
-                  <div>
-                    <h3 className="font-semibold">Phone Number (Australia)</h3>
-                    <div className="flex flex-col">
-                      <Link href={`tel:${phoneNumber2}`}>
-                        <span className="text-lg hover:underline text-gray-800">
-                          {phoneNumber2}
-                        </span>
-                      </Link>
-                    </div>
-                  </div>
-                </div>
+
                 <div className="flex p-4 rounded-md shadow-md bg-white items-center gap-4">
                   <div className="bg-Ttext rounded-full">
                     <Phone className="text-white w-12 h-12 p-3" />
@@ -142,15 +130,6 @@ export default function ConatactPage() {
                     <span className="text-lg  text-gray-800">{address}</span>
                   </div>
                 </div>
-                <div className="flex p-4 rounded-md shadow-md bg-white items-center gap-4">
-                  <div className="bg-Ttext rounded-full">
-                    <MapPin className="text-white w-12 h-12 p-3" />
-                  </div>
-                  <div>
-                    <h3 className="font-semibold">Address (Australia)</h3>
-                    <span className="text-lg  text-gray-800">{address2}</span>
-                  </div>
-                </div>
               </div>
               <div className="flex justify-between border-t border-muted-foreground py-6 items-center">
                 <h2 className="text-xl font-semibold text-gray-900">
@@ -185,8 +164,6 @@ export default function ConatactPage() {
           </div>
         </div>
       </div>
-
-      
 
       <div className="bg-muted">
         <BookMeeting />

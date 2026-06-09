@@ -1,22 +1,16 @@
 "use client";
 
-import { Badge } from "@/components/ui/badge";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
 import { format } from "date-fns";
-import { ArrowRight, CheckCircle, ExternalLink, X } from "lucide-react";
+import { CheckCircle, ExternalLink, X } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
+import PortfolioCard from "../card/PortfolioCard";
+import { usePathname, useRouter } from "next/navigation";
+import { se } from "date-fns/locale";
 
 // Define the project type with all required fields for the modal
-type Project = {
+export type Project = {
   id: string;
   title: string;
   mission: string;
@@ -47,15 +41,24 @@ interface WebDevPortfolioProps {
 export default function WebDevPortfolio({
   projectsData,
 }: WebDevPortfolioProps) {
+  const pathname = usePathname();
+  const router = useRouter();
   const [isModalOpen, setModalOpen] = useState(false);
   const [currentProject, setCurrentProject] = useState<Project | null>(null);
 
   const openProjectModal = (projectId: string) => {
+    router.push(`${pathname}?project=open`, { scroll: false });
     const project = projectsData.find((p) => p.id === projectId);
     if (project) {
       setCurrentProject(project);
       setModalOpen(true);
     }
+  };
+
+  const closeModal = () => {
+    router.push(pathname, { scroll: false });
+    setModalOpen(false);
+    setCurrentProject(null);
   };
 
   return (
@@ -74,7 +77,7 @@ export default function WebDevPortfolio({
       {isModalOpen && currentProject && (
         <div
           className="fixed inset-0 bg-black/70 flex items-center justify-center px-4 z-50"
-          onClick={() => setModalOpen(false)} // Click outside to close modal
+          onClick={closeModal} // Click outside to close modal
         >
           {/* Modal Container */}
           <div
@@ -83,7 +86,7 @@ export default function WebDevPortfolio({
           >
             {/* Close Button */}
             <button
-              onClick={() => setModalOpen(false)}
+              onClick={closeModal}
               className="absolute top-4 z-[100] cursor-pointer hover:bg-black/50 right-4 bg-black/60 text-white rounded-full p-2 transition"
             >
               <X className="h-5 w-5" />
@@ -192,65 +195,5 @@ export default function WebDevPortfolio({
         </div>
       )}
     </div>
-  );
-}
-
-type PortfolioCardProps = {
-  project: Project;
-  onViewDetails: () => void;
-};
-
-function PortfolioCard({ project, onViewDetails }: PortfolioCardProps) {
-  return (
-    <Card className="overflow-hidden relative group pb-6 transition-all hover:shadow-md">
-      {project.featured && (
-        <div className="absolute z-[10] top-2 left-2">
-          <span className="bg-Ttext text-white text-xs font-semibold py-1 px-3 rounded mb-2 inline-block">
-            Featured
-          </span>
-        </div>
-      )}
-
-      <div className="overflow-hidden image-anime">
-        <Image
-          src={project.images[0].url}
-          width={600}
-          height={400}
-          alt={project.title}
-          className="aspect-[3/2] transition-all duration-300 group-hover:scale-105 relative w-full object-cover"
-        />
-      </div>
-
-      <CardHeader className="pt-3">
-        <CardTitle className="text-xl">{project.title}</CardTitle>
-        <CardDescription className="text-base line-clamp-2">
-          {project.overView}
-        </CardDescription>
-      </CardHeader>
-      <CardContent className="py-3">
-        <div className="flex flex-wrap gap-2">
-          {project.technologies.map((tag, index) => (
-            <Badge key={index} variant="secondary" className="rounded-md">
-              {tag}
-            </Badge>
-          ))}
-        </div>
-      </CardContent>
-      <CardFooter className="px-5 align-bottom mt-auto pt-0">
-        <div className="border-t border-gray-100 pt-3 w-full flex">
-          <div
-            onClick={onViewDetails}
-            className="flex pr-2 !w-full cursor-pointer justify-between items-center gap-1 text-sm font-semibold text-Ttext hover:text-TtextH transition-colors duration-200"
-          >
-            <button className="cursor-pointer text-lg">View Case Study</button>
-            <ArrowRight
-              size={25}
-              className="transition-all duration-500 group-hover:translate-x-3"
-            />
-          </div>
-        </div>
-      </CardFooter>
-      <div className="absolute bottom-0 left-0 h-1 bg-Ttext w-0 group-hover:w-full transition-all duration-500" />
-    </Card>
   );
 }

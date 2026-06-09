@@ -8,6 +8,8 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "../globals.css";
 import Footer from "./components/Footer";
+import { TopLoaderProvider } from "@/context/top-loader";
+import { PageTransition } from "@/components/manual/page-transition";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -123,17 +125,21 @@ export default function MainLayout({
         className={`${geistSans.variable} bg-Mbg ${geistMono.variable} antialiased`}
       >
         <ResponseModalProvider>
-          <MainNavbar />
-          <main>{children}</main>
-          {whatsappNumber && (
-            <WhatsAppChatButton
-              phoneNumber={whatsappNumber}
-              message="Hi there! I'm interested in your services."
-            />
-          )}
-          <Footer />
-          <Toaster />
-          {GA_MEASUREMENT_ID && <GoogleAnalytics gaId={GA_MEASUREMENT_ID} />}
+          <TopLoaderProvider>
+            <MainNavbar />
+            <main>
+              <PageTransition>{children}</PageTransition>
+            </main>
+            {whatsappNumber && (
+              <WhatsAppChatButton
+                phoneNumber={whatsappNumber}
+                message="Hi there! I'm interested in your services."
+              />
+            )}
+            <Footer />
+            <Toaster />
+            {GA_MEASUREMENT_ID && <GoogleAnalytics gaId={GA_MEASUREMENT_ID} />}
+          </TopLoaderProvider>
         </ResponseModalProvider>
       </body>
     </html>

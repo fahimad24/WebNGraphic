@@ -4,6 +4,7 @@ import { AlignRight, LaptopMinimal, Mail, MapPin, Phone } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
+import { AppLink } from "../app-link";
 
 interface SubItem {
   label: string;
@@ -15,10 +16,8 @@ const MainNavbar: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
   const pathname = usePathname();
   const phoneNumber = process.env.NEXT_PUBLIC_PHONE_NUMBER;
-  const phoneNumber2 = process.env.NEXT_PUBLIC_PHONE_NUMBER2;
   const emailAddress = process.env.NEXT_PUBLIC_EMAIL_ADDRESS;
   const address = process.env.NEXT_PUBLIC_ADDRESS;
-  const address2 = process.env.NEXT_PUBLIC_ADDRESS2;
 
   const subItems: SubItem[] = [
     { label: "Web Development", href: "/web-development" },
@@ -44,31 +43,23 @@ const MainNavbar: React.FC = () => {
       {/* Top bar for mobile with contact info */}
       <div className="lg:hidden bg-Sbg text-white px-5 py-2 w-full flex">
         <div className="flex w-full justify-between items-center gap-5">
-          <Link
+          <AppLink
             href={`mailto:${emailAddress}`}
             className="flex items-center gap-2 text-sm"
             aria-label="Email Address"
           >
             <Mail className="w-3 h-3 text-Ttext" />
             <span>{emailAddress}</span>
-          </Link>
+          </AppLink>
           <div className="flex flex-col gap-1 text-sm">
-            <Link
-              href={`tel:${phoneNumber2}`}
-              className="flex items-center gap-2"
-              aria-label="Phone Number Australia"
-            >
-              <Phone className="w-3 h-3 text-Ttext" />
-              <span>{phoneNumber2}</span>
-            </Link>
-            <Link
+            <AppLink
               href={`tel:${phoneNumber}`}
               className="flex items-center gap-2"
               aria-label="Phone Number Global"
             >
               <Phone className="w-3 h-3 text-Ttext" />
               <span>{phoneNumber}</span>
-            </Link>
+            </AppLink>
           </div>
         </div>
       </div>
@@ -76,9 +67,9 @@ const MainNavbar: React.FC = () => {
       {/* Main navbar */}
       <div className="py-3 md:py-2 max-w-7xl mx-auto px-5 md:px-10 flex items-center justify-between text-white">
         <div className="flex items-center">
-          <Link href="/" aria-label="Home">
+          <AppLink href="/" aria-label="Home">
             <Logo />
-          </Link>
+          </AppLink>
 
           {/* Desktop navigation */}
           <ul className="hidden lg:flex items-center ml-7 gap-4">
@@ -96,7 +87,7 @@ const MainNavbar: React.FC = () => {
               >
                 <LaptopMinimal
                   strokeWidth={pathname === "/services" ? 3 : 2}
-                  className={`w-5 h-5 pl-2 ${pathname === '/web-development' || pathname === '/graphic-design' ? 'text-Ttext' : 'text-white'}`}
+                  className={`w-5 h-5 pl-2 ${pathname === "/web-development" || pathname === "/graphic-design" ? "text-Ttext" : "text-white"}`}
                   aria-hidden="true"
                 />
                 <span>Services</span>
@@ -110,14 +101,14 @@ const MainNavbar: React.FC = () => {
               >
                 {subItems.map((subItem, index) => (
                   <li key={index} role="none">
-                    <Link
+                    <AppLink
                       href={subItem.href}
                       role="menuitem"
                       onClick={() => setIsMenuOpen(false)}
                       className="block px-4 py-2 text-black hover:bg-gray-200 rounded-md"
                     >
                       {subItem.label}
-                    </Link>
+                    </AppLink>
                   </li>
                 ))}
               </ul>
@@ -134,13 +125,13 @@ const MainNavbar: React.FC = () => {
                 key={href}
                 className="nav-option text-sm capitalize py-1.5 px-1"
               >
-                <Link
+                <AppLink
                   href={href}
-                  className={pathname === href ? "active" : ""}
+                  className={pathname.startsWith(href) ? "active" : ""}
                   aria-current={pathname === href ? "page" : undefined}
                 >
                   {label}
-                </Link>
+                </AppLink>
               </li>
             ))}
           </ul>
@@ -148,32 +139,24 @@ const MainNavbar: React.FC = () => {
 
         {/* Desktop contact info */}
         <div className="hidden lg:flex items-center gap-5 text-sm">
-          <Link
+          <AppLink
             href={`mailto:${emailAddress}`}
             className="flex items-center gap-1"
             aria-label="Email Address"
           >
             <Mail className="w-4 h-4" />
             <span>{emailAddress}</span>
-          </Link>
+          </AppLink>
 
           <div className="flex flex-col">
-            <Link
-              href={`tel:${phoneNumber2}`}
-              className="flex items-center gap-1"
-              aria-label="Phone Number Australia"
-            >
-              <Phone className="w-4 h-4" />
-              <span>{phoneNumber2}</span>
-            </Link>
-            <Link
+            <AppLink
               href={`tel:${phoneNumber}`}
               className="flex items-center gap-1"
               aria-label="Phone Number Global"
             >
               <Phone className="w-4 h-4" />
               <span>{phoneNumber}</span>
-            </Link>
+            </AppLink>
           </div>
         </div>
 
@@ -210,7 +193,7 @@ const MainNavbar: React.FC = () => {
             { label: "Blog", href: "/blog" },
           ].map(({ label, href }) => (
             <li key={href}>
-              <Link
+              <AppLink
                 href={href}
                 className={`block px-5 py-1.5 hover:bg-indigo-950 ${
                   pathname === href ? "bg-indigo-900" : ""
@@ -219,7 +202,7 @@ const MainNavbar: React.FC = () => {
                 aria-current={pathname === href ? "page" : undefined}
               >
                 {label}
-              </Link>
+              </AppLink>
             </li>
           ))}
         </ul>
@@ -231,35 +214,24 @@ const MainNavbar: React.FC = () => {
             <h3 className="font-semibold text-white mb-1">
               Phone Number (Global)
             </h3>
-            <Link
+            <AppLink
               href={`tel:${phoneNumber}`}
               className="block hover:underline text-Ttext"
               aria-label="Phone Number Global"
             >
               {phoneNumber}
-            </Link>
+            </AppLink>
           </section>
-          <section>
-            <h3 className="font-semibold text-white mb-1">
-              Phone Number (Australia)
-            </h3>
-            <Link
-              href={`tel:${phoneNumber2}`}
-              className="block hover:underline text-Ttext"
-              aria-label="Phone Number Australia"
-            >
-              {phoneNumber2}
-            </Link>
-          </section>
+
           <section>
             <h3 className="font-semibold text-white mb-1">Email</h3>
-            <Link
+            <AppLink
               href={`mailto:${emailAddress}`}
               className="block hover:underline text-Ttext"
               aria-label="Email Address"
             >
               {emailAddress}
-            </Link>
+            </AppLink>
           </section>
           <address className="not-italic space-y-2 text-gray-300">
             <div className="flex items-start gap-2">
@@ -274,7 +246,6 @@ const MainNavbar: React.FC = () => {
                 className="h-5 w-5 rounded-full bg-white text-black p-0.5 mt-0.5"
                 aria-hidden="true"
               />
-              <p>{address2}</p>
             </div>
           </address>
         </div>
