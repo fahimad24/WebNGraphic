@@ -14,7 +14,7 @@ export default function ContactCommon() {
           backgroundImage: "url('/ctabg.jpg')",
         }}
       >
-        <div className="absolute inset-0 bg-black/85"></div>
+        <div className="absolute inset-0 bg-black/75"></div>
       </div>
       <div className="flex relative z-10  max-w-7xl px-5 md:px-12 mx-auto py-16 gap-10 justify-between flex-col-reverse md:flex-row ">
         <div className="md:w-1/2 w-full">

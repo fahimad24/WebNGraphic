@@ -21,7 +21,7 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 export const metadata: Metadata = {
-  metadataBase: new URL("https://webngraphic.com"),
+  metadataBase: new URL("https://www.webngraphic.com"),
   title: {
     template: "%s",
     default: "WebNGraphic | Web Development & Graphic Design Services",
@@ -40,7 +40,7 @@ export const metadata: Metadata = {
     "website development",
     "responsive websites",
   ],
-  authors: [{ name: "WebNGraphic", url: "https://webngraphic.com" }],
+  authors: [{ name: "WebNGraphic", url: "https://www.webngraphic.com" }],
   creator: "WebNGraphic",
   publisher: "WebNGraphic",
   formatDetection: {
@@ -59,16 +59,16 @@ export const metadata: Metadata = {
     },
   },
   alternates: {
-    canonical: "/",
+    canonical: "https://www.webngraphic.com/",
     languages: {
-      en: "/",
-      "x-default": "/",
+      en: "https://www.webngraphic.com/",
+      "x-default": "https://www.webngraphic.com/",
     },
   },
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://webngraphic.com",
+    url: "https://www.webngraphic.com",
     siteName: "WebNGraphic",
     title: "WebNGraphic - Web Development & Graphic Design Services",
     description:
